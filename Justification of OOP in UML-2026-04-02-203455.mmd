@@ -59,6 +59,6 @@ classDiagram
     Resource "1" <-- "0..*" Booking : referenced by
     User "1" --> "0..*" Booking : creates
 
-    note for Resource "Polymorphism: get_details() must be overridden in subclasses"
-    note for LabSpace "Overrides get_details()"
-    note for MeetingRoom "Overrides get_details()"
+    note for Resource "get_details() must be overridden in subclasses"
+    note for LabSpace "get_details()"
+    note for MeetingRoom "get_details()"
