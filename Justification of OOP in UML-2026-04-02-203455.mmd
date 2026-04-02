@@ -1,0 +1,64 @@
+classDiagram
+    class Resource {
+        -_resource_id : str
+        -_location : str
+        -_max_capacity : int
+        +__init__(resource_id: str, location: str, max_capacity: int)
+        +get_resource_id() str
+        +get_location() str
+        +get_max_capacity() int
+        +get_details() str
+    }
+
+    class LabSpace {
+        -_number_of_pcs : int
+        -_os_type : str
+        +__init__(resource_id: str, location: str, max_capacity: int, number_of_pcs: int, os_type: str)
+        +get_number_of_pcs() int
+        +get_os_type() str
+        +get_details() str
+    }
+
+    class MeetingRoom {
+        -_has_projector : bool
+        -_seating_layout : str
+        +__init__(resource_id: str, location: str, max_capacity: int, has_projector: bool, seating_layout: str)
+        +get_has_projector() bool
+        +get_seating_layout() str
+        +get_details() str
+    }
+
+    class User {
+        -_user_id : str
+        -_name : str
+        +__init__(user_id: str, name: str)
+        +get_user_id() str
+        +get_name() str
+    }
+
+    class Booking {
+        -_booking_id : str
+        -_resource : Resource
+        -_user : User
+        -_date : str
+        -_time_slot : str
+        -_attendees : int
+        +__init__(booking_id: str, resource: Resource, user: User, date: str, time_slot: str, attendees: int)
+        +get_booking_id() str
+        +get_resource() Resource
+        +get_user() User
+        +get_date() str
+        +get_time_slot() str
+        +get_attendees() int
+        +get_booking_details() str
+    }
+
+    Resource <|-- LabSpace
+    Resource <|-- MeetingRoom
+
+    Resource "1" <-- "0..*" Booking : referenced by
+    User "1" --> "0..*" Booking : creates
+
+    note for Resource "Polymorphism: get_details() must be overridden in subclasses"
+    note for LabSpace "Overrides get_details()"
+    note for MeetingRoom "Overrides get_details()"
