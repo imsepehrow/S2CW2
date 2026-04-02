@@ -6,7 +6,7 @@ class LabSpace(Resource):
                  number_of_pcs: int, os_type: str):
         # call parent constructor
         super().__init__(resource_id, location, max_capacity)
-        # private attributesspecific to labspace
+        # private attributes specific to LabSpace
         self._number_of_pcs = number_of_pcs
         self._os_type = os_type
 
