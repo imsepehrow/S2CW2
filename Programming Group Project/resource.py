@@ -19,4 +19,4 @@ class Resource:
 # getter for capacity
     def get_details(self) -> str:
         raise NotImplementedError("Subclasses must implement this method")
-    # this method must be overrideden in subclasses
+    # this method must be overridden in subclasses
