@@ -12,10 +12,10 @@ class Booking:
     def get_booking_id(self) -> str:
         return self._booking_id
 
-    def get_resource(self):
+    def get_resource(self) -> "Resource":
         return self._resource
 
-    def get_user(self):
+    def get_user(self) -> "User":
         return self._user
 
     def get_date(self) -> str:
